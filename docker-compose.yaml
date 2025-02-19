@@ -1,0 +1,39 @@
+services:
+  movies:
+    build: movie_finder_app
+    restart: "unless-stopped"
+    container_name: movies
+    env_file:
+      - movie_finder_app/.env
+    # ports:
+    #   - "5321:5321"  # Expose the port for this service
+    # networks:
+    #   - movie_finder_network
+
+  # movie_finder_keycloak:
+  #   image: quay.io/keycloak/keycloak:26.1.2
+  #   env_file:
+  #     - movie_finder_app/.env
+  #   depends_on:
+  #     - movie_finder_postgres
+  #   networks:
+  #     - movie_finder_network
+  #   ports:
+  #     - "8580:8080"  # Expose the port for Keycloak
+  #   command: start-dev
+
+  # movie_finder_postgres:
+  #   image: postgres:15.6
+  #   env_file:
+  #     - movie_finder_app/.env
+  #   volumes:
+  #     - /data/docker/movie_finder_postgres:/var/lib/postgresql/data
+  #   networks:
+  #     - movie_finder_network
+
+# volumes:
+#   keycloak-db:
+
+# networks:
+#   movie_finder_network:
+#     driver: bridge
