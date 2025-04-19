@@ -30,7 +30,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: movie_finder_app/
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: yourdockerhubuser/yourimage:latest
+          tags: mbush91/movie_finder:latest
